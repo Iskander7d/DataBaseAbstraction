@@ -9,6 +9,8 @@ namespace DataBaseAbstraction
     // operation with database entities
     class Operation
     {
+        // Пример инкапсуляции. У тебя приватная переменная allowedOperaion,
+        // А ее изменение и получения осуществляется через публичный AllowedOperaion метод
         private string allowedOperation;
         public string AllowedOperation
         {
@@ -16,6 +18,8 @@ namespace DataBaseAbstraction
             set { allowedOperation = value; }
         }
 
+        // Пример полиморфизма. В базовом классе создается виртуальный метод Discription.
+        // А в наследуемых классах он переопределяется. Это и есть полиморфизм - множество форм.
         public virtual void Description()
         {
             Console.WriteLine("For user allowed operation {0}", AllowedOperation);
@@ -23,6 +27,8 @@ namespace DataBaseAbstraction
 
     }
 
+    // Пример наследования. У тебя иерархия классов операций. Есть базовая Operation, от неё
+    // наследуется Read, Write, Edit, а Delete от Edit.
     class Read : Operation
     {
         public override void Description()
